@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Trajetória do Novato - Brunna (Greta)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #f7ede2;
+            transition: background-color 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            transition: background-color 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step.visual-bridge-section {
+            min-height: 35vh;
+        }
+
+        .slide-image {
+            max-width: 1000px;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.4);
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .slide-image.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .visual-bridge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+            gap: 1rem;
+        }
+
+        .visual-bridge.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .visual-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .visual-line {
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.15), transparent);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-12px) translateX(-50%); }
+            60% { transform: translateY(-6px) translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+            .step {
+                min-height: auto;
+                padding: 3rem 1.5rem;
+            }
+            .step.first-step {
+                min-height: 100vh;
+            }
+            .step.visual-bridge-section {
+                min-height: auto;
+                padding: 0;
+            }
+            .visual-icon {
+                font-size: 2rem;
+            }
+            .visual-line {
+                height: 35px;
+            }
+            .slide-image {
+                transform: translateY(20px) scale(0.98);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="bg-container" style="background-color: #f7ede2;"></div>
+
+    <main id="scrolly-container">
+        <!-- PÁGINA 01 -->
+        <section class="step first-step" data-bg="#f7ede2">
+            <img src="pagina1.png" alt="Página 01" class="slide-image">
+            <div class="scroll-indicator">
+                <span>Deslize</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </section>
+        <!-- PONTE VISUAL 1 -->
+        <section class="step visual-bridge-section" data-bg="#f7ede2">
+            <div class="visual-bridge">
+                <div class="visual-icon">🤫</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 02 -->
+        <section class="step" data-bg="#faedcb">
+            <img src="pagina2.png" alt="Página 02" class="slide-image">
+        </section>
+        <!-- PÁGINA 03 -->
+        <section class="step" data-bg="#fdf0d5">
+            <img src="pagina3.png" alt="Página 03" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 2 -->
+        <section class="step visual-bridge-section" data-bg="#fdf0d5">
+            <div class="visual-bridge">
+                <div class="visual-line"></div>
+                <div class="visual-icon">👑</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 04 -->
+        <section class="step" data-bg="#e9edc9">
+            <img src="pagina4.png" alt="Página 04" class="slide-image">
+        </section>
+        <!-- PÁGINA 05 -->
+        <section class="step" data-bg="#ccd5ae">
+            <img src="pagina5.png" alt="Página 05" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 3 -->
+        <section class="step visual-bridge-section" data-bg="#ccd5ae">
+            <div class="visual-bridge">
+                <div class="visual-line"></div>
+                <div class="visual-icon">🎈</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 06 -->
+        <section class="step" data-bg="#d4a373">
+            <img src="pagina6.png" alt="Página 06" class="slide-image">
+        </section>
+        <!-- PÁGINA 07 -->
+        <section class="step" data-bg="#f4a261">
+            <img src="pagina7.png" alt="Página 07" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 4 -->
+        <section class="step visual-bridge-section" data-bg="#f4a261">
+            <div class="visual-bridge">
+                <div class="visual-line"></div>
+                <div class="visual-icon">🦁</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 08 -->
+        <section class="step" data-bg="#e9c46a">
+            <img src="pagina8.png" alt="Página 08" class="slide-image">
+        </section>
+        <!-- PÁGINA 09 -->
+        <section class="step" data-bg="#2a9d8f">
+            <img src="pagina9.png" alt="Página 09" class="slide-image">
+        </section>
+        <!-- PÁGINA 10 -->
+        <section class="step" data-bg="#264653">
+            <img src="pagina10.png" alt="Página 10" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 5 -->
+        <section class="step visual-bridge-section" data-bg="#264653">
+            <div class="visual-bridge">
+                <div class="visual-line" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);"></div>
+                <div class="visual-icon">🤡</div>
+                <div class="visual-line" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 11 -->
+        <section class="step" data-bg="#e76f51">
+            <img src="pagina11.png" alt="Página 11" class="slide-image">
+        </section>
+        <!-- PÁGINA 12 -->
+        <section class="step" data-bg="#f4a261">
+            <img src="pagina12.png" alt="Página 12" class="slide-image">
+        </section>
+        <!-- PÁGINA 13 -->
+        <section class="step" data-bg="#fdf0d5">
+            <img src="pagina13.png" alt="Página 13" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 6 -->
+        <section class="step visual-bridge-section" data-bg="#fdf0d5">
+            <div class="visual-bridge">
+                <div class="visual-line"></div>
+                <div class="visual-icon">🚪</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 14 -->
+        <section class="step" data-bg="#faedcb">
+            <img src="pagina14.png" alt="Página 14" class="slide-image">
+        </section>
+        <!-- PÁGINA 15 -->
+        <section class="step" data-bg="#e9edc9">
+            <img src="pagina15.png" alt="Página 15" class="slide-image">
+        </section>
+        <!-- PÁGINA 16 -->
+        <section class="step" data-bg="#ccd5ae">
+            <img src="pagina16.png" alt="Página 16" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 7 -->
+        <section class="step visual-bridge-section" data-bg="#ccd5ae">
+            <div class="visual-bridge">
+                <div class="visual-line"></div>
+                <div class="visual-icon">🛡️</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 17 -->
+        <section class="step" data-bg="#d4a373">
+            <img src="pagina17.png" alt="Página 17" class="slide-image">
+        </section>
+        <!-- PÁGINA 18 -->
+        <section class="step" data-bg="#e9c46a">
+            <img src="pagina18.png" alt="Página 18" class="slide-image">
+        </section>
+        <!-- PÁGINA 19 -->
+        <section class="step" data-bg="#2a9d8f">
+            <img src="pagina19.png" alt="Página 19" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 8 -->
+        <section class="step visual-bridge-section" data-bg="#2a9d8f">
+            <div class="visual-bridge">
+                <div class="visual-line" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);"></div>
+                <div class="visual-icon">🏰</div>
+                <div class="visual-line" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 20 -->
+        <section class="step" data-bg="#264653">
+            <img src="pagina20.png" alt="Página 20" class="slide-image">
+        </section>
+        <!-- PÁGINA 21 -->
+        <section class="step" data-bg="#e76f51">
+            <img src="pagina21.png" alt="Página 21" class="slide-image">
+        </section>
+        <!-- PÁGINA 22 -->
+        <section class="step" data-bg="#f4a261">
+            <img src="pagina22.png" alt="Página 22" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 9 -->
+        <section class="step visual-bridge-section" data-bg="#f4a261">
+            <div class="visual-bridge">
+                <div class="visual-line"></div>
+                <div class="visual-icon">💬</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 23 -->
+        <section class="step" data-bg="#fdf0d5">
+            <img src="pagina23.png" alt="Página 23" class="slide-image">
+        </section>
+        <!-- PÁGINA 24 -->
+        <section class="step" data-bg="#faedcb">
+            <img src="pagina24.png" alt="Página 24" class="slide-image">
+        </section>
+        <!-- PÁGINA 25 -->
+        <section class="step" data-bg="#e9edc9">
+            <img src="pagina25.png" alt="Página 25" class="slide-image">
+        </section>
+        <!-- PÁGINA 26 -->
+        <section class="step" data-bg="#ccd5ae">
+            <img src="pagina26.png" alt="Página 26" class="slide-image">
+        </section>
+        <!-- PONTE VISUAL 10 -->
+        <section class="step visual-bridge-section" data-bg="#ccd5ae">
+            <div class="visual-bridge">
+                <div class="visual-line"></div>
+                <div class="visual-icon">✨</div>
+                <div class="visual-line"></div>
+            </div>
+        </section>
+        <!-- PÁGINA 27 -->
+        <section class="step" data-bg="#f7ede2">
+            <img src="pagina27.png" alt="Página 27" class="slide-image">
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.step');
+            const bgContainer = document.getElementById('bg-container');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -15% 0px',
+                threshold: 0.35
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const img = entry.target.querySelector('.slide-image');
+                    const visualBridge = entry.target.querySelector('.visual-bridge');
+
+                    if (entry.isIntersecting) {
+                        if (img) img.classList.add('is-visible');
+                        if (visualBridge) visualBridge.classList.add('is-visible');
+
+                        const bgColor = entry.target.getAttribute('data-bg');
+                        if (bgColor) {
+                            bgContainer.style.backgroundColor = bgColor;
+                        }
+                    } else {
+                        if (img) img.classList.remove('is-visible');
+                        if (visualBridge) visualBridge.classList.remove('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+        });
+
+    </script>
+
+</body>
+</html>
