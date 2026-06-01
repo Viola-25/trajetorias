@@ -57,9 +57,15 @@
       position: relative;
     }
 
+    .hero,
+    .section,
+    .card {
+      animation: rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
       gap: 18px;
       padding: 22px;
       border: 1px solid var(--border);
@@ -67,13 +73,6 @@
       background: var(--panel);
       backdrop-filter: blur(14px);
       box-shadow: var(--shadow);
-    }
-
-    .hero-copy,
-    .hero-aside,
-    .section,
-    .card {
-      animation: rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
 
     .badge {
@@ -260,13 +259,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex: 0 0 34px;
       width: 34px;
       height: 34px;
+      padding: 0;
       border-radius: 12px;
       background: rgba(40, 107, 140, 0.1);
       color: var(--accent-2);
       font-size: 0.85rem;
       font-weight: 800;
+      line-height: 1;
+      text-align: center;
+      box-sizing: border-box;
     }
 
     .tag {
@@ -365,8 +369,7 @@
         <div class="badge">GitHub Pages</div>
         <h1>Trajetórias em subdiretórios</h1>
         <p class="lead">
-          A página inicial virou um menu centralizado para navegar entre as trajetórias.
-          Cada trabalho fica em sua própria pasta com um <code>index.html</code>, então o GitHub Pages publica tudo de forma limpa e estável.
+          Menu único, direto e objetivo. Cada trabalho fica em sua própria pasta com um <code>index.html</code>, então o GitHub Pages publica tudo de forma limpa e estável.
         </p>
 
         <div class="chips">
@@ -408,86 +411,74 @@
     <section class="section">
       <div class="section-head">
         <div>
-          <h2>Destaques</h2>
-          <p>Trajetórias principais e a versão de Emilly.</p>
+          <h2>Trajetórias</h2>
+          <p>Todas as páginas no mesmo nível, sem divisão por categoria.</p>
         </div>
       </div>
 
       <div class="grid">
         <a class="card" href="trajetoria-ana-lu/index.html">
-          <div class="card-top"><span class="index">01</span><span class="tag">Destaque</span></div>
+          <div class="card-top"><span class="index">01</span><span class="tag">Trajetória</span></div>
           <strong>Trajetória da Ana Lu</strong>
-          <span>Uma entrada direta para a versão principal do projeto.</span>
+          <span>Acesso direto à página principal da Ana Lu.</span>
         </a>
         <a class="card" href="trajetoria-luana/index.html">
-          <div class="card-top"><span class="index">02</span><span class="tag">Destaque</span></div>
+          <div class="card-top"><span class="index">02</span><span class="tag">Trajetória</span></div>
           <strong>Trajetória da Luana</strong>
-          <span>Organizada em subdiretório próprio e pronta para publicação.</span>
+          <span>Publicação separada em pasta própria.</span>
         </a>
         <a class="card" href="trajetoria-marcela/index.html">
-          <div class="card-top"><span class="index">03</span><span class="tag">Destaque</span></div>
+          <div class="card-top"><span class="index">03</span><span class="tag">Trajetória</span></div>
           <strong>Trajetória da Marcela</strong>
-          <span>Página independente com navegação interna preservada.</span>
+          <span>Versão independente com navegação interna.</span>
         </a>
         <a class="card" href="trajetoria-emilly/index.html">
-          <div class="card-top"><span class="index">04</span><span class="tag">Destaque</span></div>
+          <div class="card-top"><span class="index">04</span><span class="tag">Trajetória</span></div>
           <strong>Trajetória Emilly</strong>
-          <span>Inclui a versão principal e a variação do HTML de apoio.</span>
+          <span>Inclui a versão principal e o arquivo auxiliar.</span>
         </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <h2>Novatos</h2>
-          <p>Todos os demais trabalhos em pastas padronizadas.</p>
-        </div>
-      </div>
-
-      <div class="grid">
         <a class="card" href="trajetoria-novato-andre-albano/index.html">
-          <div class="card-top"><span class="index">05</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">05</span><span class="tag">Trajetória</span></div>
           <strong>André Albano</strong>
-          <span>Versão convertida para caminho curto e sem acentos.</span>
+          <span>Pasta padronizada com nome curto.</span>
         </a>
         <a class="card" href="trajetoria-novato-beatriz/index.html">
-          <div class="card-top"><span class="index">06</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">06</span><span class="tag">Trajetória</span></div>
           <strong>Beatriz</strong>
-          <span>Abre diretamente o índice interno da pasta.</span>
+          <span>Abre diretamente o índice interno.</span>
         </a>
         <a class="card" href="trajetoria-novato-brunna/index.html">
-          <div class="card-top"><span class="index">07</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">07</span><span class="tag">Trajetória</span></div>
           <strong>Brunna</strong>
           <span>Link estável para a trajetória publicada no Pages.</span>
         </a>
         <a class="card" href="trajetoria-novato-julia-bueno/index.html">
-          <div class="card-top"><span class="index">08</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">08</span><span class="tag">Trajetória</span></div>
           <strong>Júlia Bueno</strong>
           <span>Pasta padronizada com navegação independente.</span>
         </a>
         <a class="card" href="trajetoria-novato-lorena/index.html">
-          <div class="card-top"><span class="index">09</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">09</span><span class="tag">Trajetória</span></div>
           <strong>Lorena</strong>
           <span>Estrutura pronta para a publicação no subdiretório.</span>
         </a>
         <a class="card" href="trajetoria-novato-marina/index.html">
-          <div class="card-top"><span class="index">10</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">10</span><span class="tag">Trajetória</span></div>
           <strong>Marina</strong>
           <span>Segue a mesma lógica de página isolada por pasta.</span>
         </a>
         <a class="card" href="trajetoria-novato-rafa/index.html">
-          <div class="card-top"><span class="index">11</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">11</span><span class="tag">Trajetória</span></div>
           <strong>Rafa</strong>
-          <span>O nome foi reduzido para um slug simples e previsível.</span>
+          <span>Nome reduzido para um slug simples e previsível.</span>
         </a>
         <a class="card" href="trajetoria-novato-sophia/index.html">
-          <div class="card-top"><span class="index">12</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">12</span><span class="tag">Trajetória</span></div>
           <strong>Sophia</strong>
           <span>Publicação separada com o seu próprio índice.</span>
         </a>
         <a class="card" href="trajetoria-novato-stephany-selim/index.html">
-          <div class="card-top"><span class="index">13</span><span class="tag">Novato</span></div>
+          <div class="card-top"><span class="index">13</span><span class="tag">Trajetória</span></div>
           <strong>Stephany Selim</strong>
           <span>Subdiretório com caminho curto e sem acentuação.</span>
         </a>
